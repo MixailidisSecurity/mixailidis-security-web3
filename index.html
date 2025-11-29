@@ -91,6 +91,18 @@
             padding: 0 10px;
         }
 
+        .hero-company {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .hero-company h2 {
+            color: #ff4444;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
         .hero p {
             font-size: clamp(1rem, 2.5vw, 1.3rem);
             max-width: 600px;
@@ -249,46 +261,124 @@
             line-height: 1.5;
         }
 
-        /* Gallery Styles */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-            max-width: 100%;
+        /* Gallery Slider Styles */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .gallery-item {
+        .tab-btn {
+            background: #1a1a1a;
+            color: white;
+            border: 2px solid #333;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: #ff4444;
+            border-color: #ff4444;
+            color: white;
+        }
+
+        .tab-btn:hover {
+            border-color: #ff4444;
+        }
+
+        .gallery-category {
+            display: none;
+        }
+
+        .gallery-category.active {
+            display: block;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slide {
+            min-width: 300px;
             background: #1a1a1a;
             border-radius: 10px;
             overflow: hidden;
             border: 1px solid #333;
             transition: all 0.3s;
-            cursor: pointer;
-            max-width: 100%;
+            flex-shrink: 0;
         }
 
-        .gallery-item:hover {
+        .slide:hover {
             transform: translateY(-5px);
             border-color: #ff4444;
         }
 
-        .gallery-item img {
+        .slide img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            transition: transform 0.3s;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-caption {
+        .slide-caption {
             padding: 1rem;
             text-align: center;
-            color: #ffffff;
+            color: white;
             font-weight: 500;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 68, 68, 0.8);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background: #ff4444;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: 10px;
+        }
+
+        .slider-btn.next {
+            right: 10px;
         }
 
         /* Lightbox Styles */
@@ -514,6 +604,10 @@
                 font-size: 2rem;
             }
             
+            .hero-company h2 {
+                font-size: 2rem;
+            }
+            
             .hero p {
                 font-size: 1.1rem;
             }
@@ -523,9 +617,27 @@
                 align-items: center;
             }
             
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 1rem;
+            .slider {
+                gap: 0.5rem;
+            }
+            
+            .slide {
+                min-width: 250px;
+            }
+            
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 200px;
             }
             
             h2 {
@@ -554,12 +666,12 @@
                 font-size: 1.8rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .hero-company h2 {
+                font-size: 1.8rem;
             }
             
-            .gallery-grid {
-                grid-template-columns: 1fr;
+            .hero p {
+                font-size: 1rem;
             }
             
             .contact-info {
@@ -581,6 +693,10 @@
 
             .cta-box {
                 padding: 2rem 1rem;
+            }
+            
+            .slide {
+                min-width: 280px;
             }
         }
     </style>
@@ -604,7 +720,10 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Η Ασφάλεια Σας, Η Προτεραιότητά Μας</h1>
-            <p>Στην MIXAILIDIS SECURITY, η ασφάλεια δεν είναι απλώς υπηρεσία - είναι εγγύηση ηρεμίας, συνέπειας και αδιάλειπτης λειτουργίας για το σπίτι και την επιχείρησή σας.</p>
+            <div class="hero-company">
+                <h2>MIXAILIDIS SECURITY</h2>
+            </div>
+            <p>Η ασφάλεια δεν είναι απλώς υπηρεσία - είναι εγγύηση ηρεμίας, συνέπειας και αδιάλειπτης λειτουργίας για το σπίτι και την επιχείρησή σας.</p>
             <div class="hero-buttons">
                 <a href="#quote" class="btn-primary">ΑΙΤΗΣΗ ΠΡΟΣΦΟΡΑΣ</a>
                 <a href="#contact" class="btn-secondary">ΚΑΛΕΣΤΕ ΜΑΣ</a>
@@ -690,95 +809,97 @@
                 Δείτε ολοκληρωμένα projects και επαγγελματικές εγκαταστάσεις από την ομάδα μας
             </p>
 
-            <!-- Εγκατάσταση CCTV & IP -->
-            <h3>📹 Εγκατάσταση CCTV & IP</h3>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/cctv-ip/cctv-1.jpg" 
-                         alt="Εγκατάσταση CCTV & IP - Project 1"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">CCTV 1</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/cctv-ip/cctv-2.jpg" 
-                         alt="Εγκατάσταση CCTV & IP - Project 2"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">CCTV 2</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/cctv-ip/cctv-3.jpg" 
-                         alt="Εγκατάσταση CCTV & IP - Project 3"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">CCTV 3</div>
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <button class="tab-btn active" onclick="showCategory('installations')">🏗️ Εγκαταστάσεις</button>
+                <button class="tab-btn" onclick="showCategory('certifications')">📋 Πιστοποιήσεις</button>
+            </div>
+
+            <!-- Installations Slider -->
+            <div id="installations" class="gallery-category active">
+                <h3>Επαγγελματικές Εγκαταστάσεις</h3>
+                <div class="slider-container">
+                    <div class="slider" id="installations-slider">
+                        <!-- CCTV & IP -->
+                        <div class="slide">
+                            <img src="images/cctv-ip/cctv-1.jpg" alt="CCTV Εγκατάσταση 1" onclick="openLightbox(this)">
+                            <div class="slide-caption">CCTV & IP Εγκατάσταση</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/cctv-ip/cctv-2.jpg" alt="CCTV Εγκατάσταση 2" onclick="openLightbox(this)">
+                            <div class="slide-caption">CCTV & IP Συστήματα</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/cctv-ip/cctv-3.jpg" alt="CCTV Εγκατάσταση 3" onclick="openLightbox(this)">
+                            <div class="slide-caption">CCTV & IP Ρυθμίσεις</div>
+                        </div>
+                        
+                        <!-- Alarm Systems -->
+                        <div class="slide">
+                            <img src="images/alarm-systems/alarm-1.jpg" alt="Συναγερμός Εγκατάσταση 1" onclick="openLightbox(this)">
+                            <div class="slide-caption">Συστήματα Συναγερμού</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/alarm-systems/alarm-2.jpg" alt="Συναγερμός Εγκατάσταση 2" onclick="openLightbox(this)">
+                            <div class="slide-caption">Συναγερμοί Κατοικιών</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/alarm-systems/alarm-3.jpg" alt="Συναγερμός Εγκατάσταση 3" onclick="openLightbox(this)">
+                            <div class="slide-caption">Συναγερμοί Επιχειρήσεων</div>
+                        </div>
+                        
+                        <!-- Fire Detection -->
+                        <div class="slide">
+                            <img src="images/fire-detection/fire-1.jpg" alt="Πυρανίχνευση 1" onclick="openLightbox(this)">
+                            <div class="slide-caption">Πυρανίχνευση Συστήματα</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/fire-detection/fire-2.jpg" alt="Πυρανίχνευση 2" onclick="openLightbox(this)">
+                            <div class="slide-caption">Πυρανίχνευση Εγκατάσταση</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/fire-detection/fire-3.jpg" alt="Πυρανίχνευση 3" onclick="openLightbox(this)">
+                            <div class="slide-caption">Πυρανίχνευση Ρυθμίσεις</div>
+                        </div>
+                    </div>
+                    <button class="slider-btn prev" onclick="moveSlide('installations-slider', -1)">❮</button>
+                    <button class="slider-btn next" onclick="moveSlide('installations-slider', 1)">❯</button>
                 </div>
             </div>
 
-            <!-- Συστήματα Συναγερμού -->
-            <h3>🚨 Συστήματα Συναγερμού</h3>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/alarm-systems/alarm-1.jpg" 
-                         alt="Σύστημα Συναγερμού - Project 1"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">Συναγερμός Εγκατάσταση 1</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/alarm-systems/alarm-2.jpg" 
-                         alt="Σύστημα Συναγερμού - Project 2"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">Συναγερμός Εγκατάσταση 2</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/alarm-systems/alarm-3.jpg" 
-                         alt="Σύστημα Συναγερμού - Project 3"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">Συναγερμός Εγκατάσταση 3</div>
-                </div>
-            </div>
-
-            <!-- Πυρανίχνευση -->
-            <h3>🔥 Πυρανίχνευση</h3>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/fire-detection/fire-1.jpg" 
-                         alt="Σύστημα Πυρανίχνευσης - Project 1"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">Πυρανίχνευση 1</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/fire-detection/fire-2.jpg" 
-                         alt="Σύστημα Πυρανίχνευσης - Project 2"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">Πυρανίχνευση 2</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/fire-detection/fire-3.jpg" 
-                         alt="Σύστημα Πυρανίχνευσης - Project 3"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">Πυρανίχνευση 3</div>
-                </div>
-            </div>
-
-            <!-- Πιστοποίηση -->
-            <h3>📋 Πιστοποίηση</h3>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/certification/certif-1.jpg" 
-                         alt="Πιστοποίηση Συστημάτων - Document 1"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">Πιστοποίηση 1</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/certification/certif-2.jpg" 
-                         alt="Πιστοποίηση Συστημάτων - Document 2"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">Πιστοποίηση 2</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/certification/certif-3.jpg" 
-                         alt="Πιστοποίηση Συστημάτων - Document 3"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">Πιστοποίηση 3</div>
+            <!-- Certifications Slider -->
+            <div id="certifications" class="gallery-category">
+                <h3>Πιστοποιήσεις & Έγγραφα</h3>
+                <div class="slider-container">
+                    <div class="slider" id="certifications-slider">
+                        <!-- Certifications -->
+                        <div class="slide">
+                            <img src="images/certification/certif-1.jpg" alt="Πιστοποίηση 1" onclick="openLightbox(this)">
+                            <div class="slide-caption">Πιστοποίηση 1</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/certification/certif-2.jpg" alt="Πιστοποίηση 2" onclick="openLightbox(this)">
+                            <div class="slide-caption">Πιστοποίηση 2</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/certification/certif-3.jpg" alt="Πιστοποίηση 3" onclick="openLightbox(this)">
+                            <div class="slide-caption">Πιστοποίηση 3</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/certification/certif-4.jpg" alt="Πιστοποίηση 4" onclick="openLightbox(this)">
+                            <div class="slide-caption">Πιστοποίηση 4</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/certification/certif-5.jpg" alt="Πιστοποίηση 5" onclick="openLightbox(this)">
+                            <div class="slide-caption">Πιστοποίηση 5</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/certification/certif-6.jpg" alt="Πιστοποίηση 6" onclick="openLightbox(this)">
+                            <div class="slide-caption">Πιστοποίηση 6</div>
+                        </div>
+                    </div>
+                    <button class="slider-btn prev" onclick="moveSlide('certifications-slider', -1)">❮</button>
+                    <button class="slider-btn next" onclick="moveSlide('certifications-slider', 1)">❯</button>
                 </div>
             </div>
         </div>
@@ -946,5 +1067,112 @@
             const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
             const callButtons = document.querySelectorAll('#phone-link, #call-now-btn');
             
-            const allPhoneElements
+            const allPhoneElements = [...phoneLinks, ...callButtons];
+            
+            allPhoneElements.forEach(element => {
+                if (isMobileDevice()) {
+                    // Από κινητό - καλεί κινητό
+                    if (element.href) {
+                        element.href = `tel:${mobileNumber}`;
+                    }
+                    if (element.textContent.includes('698') || element.textContent.includes('ΚΑΛΕΣΤΕ') || element.textContent.includes('ΜΙΛΗΣΤΕ')) {
+                        element.innerHTML = element.innerHTML.replace('📞', '📱').replace('698 8264256', '📱 698 8264256');
+                    }
+                } else {
+                    // Από desktop - καλεί σταθερό
+                    if (element.href) {
+                        element.href = `tel:${landlineNumber}`;
+                    }
+                    if (element.textContent.includes('698') || element.textContent.includes('ΚΑΛΕΣΤΕ') || element.textContent.includes('ΜΙΛΗΣΤΕ')) {
+                        element.innerHTML = element.innerHTML.replace('📱', '📞').replace('698 8264256', '📞 2681 302 053');
+                    }
+                }
+            });
+        }
 
+        // Lightbox Functions
+        function openLightbox(element) {
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox-img').src = element.src;
+            document.getElementById('lightbox-caption').textContent = element.alt;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Gallery Slider Functionality
+        function showCategory(category) {
+            // Hide all categories
+            document.querySelectorAll('.gallery-category').forEach(cat => {
+                cat.classList.remove('active');
+            });
+            
+            // Remove active from all tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected category
+            document.getElementById(category).classList.add('active');
+            
+            // Activate selected tab
+            event.target.classList.add('active');
+        }
+
+        function moveSlide(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            const slideWidth = slider.querySelector('.slide').offsetWidth + 16; // 16px gap
+            const scrollAmount = slideWidth * direction;
+            
+            slider.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Quote Form Submission
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Συνέλεξε τα δεδομένα
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                location: document.getElementById('location').value,
+                propertyType: document.getElementById('property-type').value,
+                services: document.getElementById('services-needed').value,
+                description: document.getElementById('description').value,
+                timestamp: new Date().toLocaleString('el-GR')
+            };
+
+            // Δημιουργία email link
+            const subject = `Νέα Αίτηση Προσφοράς από ${formData.name}`;
+            const body = `
+Ονοματεπώνυμο: ${formData.name}
+Τηλέφωνο: ${formData.phone}
+Email: ${formData.email}
+Περιοχή: ${formData.location}
+Τύπος Ακινήτου: ${formData.propertyType}
+Υπηρεσίες: ${formData.services}
+Περιγραφή: ${formData.description}
+Ημερομηνία: ${formData.timestamp}
+            `.trim();
+
+            const mailtoLink = `mailto:mixailidisalarmsystem@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Άνοιγμα email client
+            window.location.href = mailtoLink;
+            
+            // Εμφάνιση μηνύματος επιβεβαίωσης
+            alert(`Σας ευχαριστούμε ${formData.name}! Θα ανοίξει το email σας για αποστολή. Αν δεν ανοίξει, στείλτε μας email στο mixailidisalarmsystem@gmail.com`);
+        });
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setupSmartPhone();
+        });
+    </script>
+</body>
+</html>
