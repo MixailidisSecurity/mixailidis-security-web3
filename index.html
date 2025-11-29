@@ -2,7 +2,7 @@
 <html lang="el">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>MIXAILIDIS SECURITY - Συστήματα Ασφαλείας & Παρακολούθησης</title>
     <style>
         * {
@@ -17,6 +17,7 @@
             color: #e0e0e0;
             background: #000000;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         /* Header & Navigation */
@@ -69,12 +70,16 @@
             padding: 120px 20px 80px;
             text-align: center;
             border-bottom: 1px solid #333;
+            width: 100%;
+            overflow: hidden;
         }
 
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: #ffffff;
+            word-wrap: break-word;
+            line-height: 1.2;
         }
 
         .hero p {
@@ -82,6 +87,7 @@
             max-width: 600px;
             margin: 0 auto 2rem;
             color: #cccccc;
+            line-height: 1.6;
         }
 
         .hero-buttons {
@@ -130,16 +136,12 @@
             color: white;
         }
 
-        .btn-secondary.active {
-            background: #ff4444;
-            border-color: #ff4444;
-            color: white;
-        }
-
         /* Sections */
         section {
             padding: 80px 20px;
             background: #000000;
+            width: 100%;
+            overflow: hidden;
         }
 
         .section-light {
@@ -149,6 +151,8 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
         }
 
         h2 {
@@ -156,6 +160,7 @@
             font-size: 2.2rem;
             margin-bottom: 3rem;
             color: #ffffff;
+            word-wrap: break-word;
         }
 
         /* Features Grid */
@@ -227,6 +232,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
+            max-width: 100%;
         }
 
         .gallery-item {
@@ -236,6 +242,7 @@
             border: 1px solid #333;
             transition: all 0.3s;
             cursor: pointer;
+            max-width: 100%;
         }
 
         .gallery-item:hover {
@@ -305,15 +312,6 @@
             font-size: 1.2rem;
         }
 
-        .gallery-nav {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .gallery-filter {
-            margin: 0 5px;
-        }
-
         /* Targets Grid */
         .targets-grid {
             display: grid;
@@ -379,6 +377,7 @@
             gap: 1rem;
             justify-content: center;
             margin-top: 1rem;
+            flex-wrap: wrap;
         }
 
         .social-link {
@@ -479,14 +478,31 @@
             color: #666;
         }
 
-        /* Responsive */
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 100%;
+                padding: 0 15px;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
             
+            .hero {
+                padding: 100px 15px 60px;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
+                padding: 0 10px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 15px;
             }
             
             .hero-buttons {
@@ -495,7 +511,50 @@
             }
             
             .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+                padding: 0 10px;
+            }
+            
+            .features-grid,
+            .services-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .targets-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                padding: 10px 20px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -597,26 +656,18 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section - ΜΙΑ ΚΑΤΗΓΟΡΙΑ -->
     <section id="gallery" class="gallery-section section-light">
         <div class="container">
-            <h2>📸 Δουλειές Μας & Προϊόντα</h2>
+            <h2>📸 Δουλειές & Εγκαταστάσεις Μας</h2>
             <p style="text-align: center; margin-bottom: 3rem; color: #cccccc;">
-                Δείτε μερικά από τα projects μας και τον εξοπλισμό που χρησιμοποιούμε
+                Δείτε ολοκληρωμένα projects και επαγγελματικές εγκαταστάσεις από την ομάδα μας
             </p>
-            
-            <!-- Gallery Navigation -->
-            <div class="gallery-nav">
-                <button class="gallery-filter btn-secondary active" data-filter="all">Όλες</button>
-                <button class="gallery-filter btn-secondary" data-filter="projects">Δουλειές</button>
-                <button class="gallery-filter btn-secondary" data-filter="products">Προϊόντα</button>
-                <button class="gallery-filter btn-secondary" data-filter="installations">Εγκαταστάσεις</button>
-            </div>
 
             <!-- Gallery Grid -->
             <div class="gallery-grid">
                 <!-- Project 1 -->
-                <div class="gallery-item" data-category="projects">
+                <div class="gallery-item">
                     <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Εγκατάσταση+CCTV+Καταστήματος" 
                          alt="Εγκατάσταση CCTV Καταστήματος"
                          onclick="openLightbox(this)">
@@ -624,43 +675,43 @@
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="gallery-item" data-category="projects">
+                <div class="gallery-item">
                     <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Σύστημα+Συναγερμού+Κατοικίας" 
                          alt="Σύστημα Συναγερμού Κατοικίας"
                          onclick="openLightbox(this)">
                     <div class="gallery-caption">Σύστημα Συναγερμού Κατοικίας</div>
                 </div>
                 
-                <!-- Product 1 -->
-                <div class="gallery-item" data-category="products">
-                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Κάμερες+Hikvision" 
-                         alt="Κάμερες Hikvision"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">Κάμερες Hikvision</div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="gallery-item" data-category="products">
-                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Συστήματα+Bosch" 
-                         alt="Συστήματα Bosch"
-                         onclick="openLightbox(this)">
-                    <div class="gallery-caption">Συστήματα Bosch</div>
-                </div>
-                
-                <!-- Installation 1 -->
-                <div class="gallery-item" data-category="installations">
-                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Έξυπνο+Σπίτι" 
+                <!-- Project 3 -->
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Έξυπνο+Σπίτι+Εγκατάσταση" 
                          alt="Έξυπνο Σπίτι Εγκατάσταση"
                          onclick="openLightbox(this)">
                     <div class="gallery-caption">Έξυπνο Σπίτι</div>
                 </div>
                 
-                <!-- Installation 2 -->
-                <div class="gallery-item" data-category="installations">
+                <!-- Project 4 -->
+                <div class="gallery-item">
                     <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Δίκτυα+Οπτικών+Ινών" 
                          alt="Δίκτυα Οπτικών Ινών"
                          onclick="openLightbox(this)">
                     <div class="gallery-caption">Δίκτυα Οπτικών Ινών</div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Πυρανίχνευση+Εγκατάσταση" 
+                         alt="Πυρανίχνευση Εγκατάσταση"
+                         onclick="openLightbox(this)">
+                    <div class="gallery-caption">Πυρανίχνευση</div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Κέντρο+Λήψης+Σημάτων" 
+                         alt="Κέντρο Λήψης Σημάτων"
+                         onclick="openLightbox(this)">
+                    <div class="gallery-caption">Κέντρο Λήψης Σημάτων</div>
                 </div>
             </div>
             
@@ -669,7 +720,7 @@
                 <h4 style="color: #ff4444; margin-bottom: 1rem;">📤 Πώς να Προσθέσετε Φωτογραφίες;</h4>
                 <p style="color: #cccccc; margin-bottom: 1rem;">
                     1. Τραβήξτε φωτογραφίες από τις εγκαταστάσεις σας<br>
-                    2. Ανέβαστέ τες στο φάκελο "images" στο GitHub<br>
+                    2. Ανέβαστέ τες στο GitHub<br>
                     3. Αλλάξτε τα links στις φωτογραφίες παραπάνω
                 </p>
                 <small style="color: #666;">Μέγιστο μέγεθος: 2MB ανά φωτογραφία | Μορφές: JPG, PNG</small>
@@ -860,28 +911,3 @@
                     }
                 }
             });
-        }
-
-        // Gallery Filtering
-        document.querySelectorAll('.gallery-filter').forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                document.querySelectorAll('.gallery-filter').forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                const filter = this.getAttribute('data-filter');
-                const items = document.querySelectorAll('.gallery-item');
-                
-                items.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Lightbox Functions
-        function openLightbox(element) 
