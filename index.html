@@ -63,7 +63,7 @@
             color: #ff4444;
         }
 
-        /* Hero Section - ΒΕΛΤΙΩΜΕΝΟ */
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             color: white;
@@ -175,6 +175,14 @@
             padding: 0 15px;
         }
 
+        h3 {
+            text-align: center;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin: 3rem 0 1.5rem 0;
+            color: #ff4444;
+            word-wrap: break-word;
+        }
+
         /* Features Grid */
         .features-grid {
             display: grid;
@@ -241,7 +249,7 @@
             line-height: 1.5;
         }
 
-        /* Gallery Styles - ΧΩΡΙΣ UPLOAD INSTRUCTIONS */
+        /* Gallery Styles */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -484,7 +492,7 @@
             color: #666;
         }
 
-        /* Responsive Design - ΒΕΛΤΙΩΜΕΝΟ */
+        /* Responsive Design */
         @media (max-width: 1200px) {
             .container {
                 max-width: 100%;
@@ -581,7 +589,7 @@
     <!-- Header -->
     <header>
         <nav class="nav-container">
-            <img src="53B122F7-0F25-4B63-BDFF-B00B240B12AD.jpeg" alt="MIXAILIDIS SECURITY SOLUTION" class="logo">
+            <img src="images/logo.jpg" alt="MIXAILIDIS SECURITY SOLUTION" class="logo">
             <ul class="nav-links">
                 <li><a href="#about">Για Εμάς</a></li>
                 <li><a href="#services">Υπηρεσίες</a></li>
@@ -592,7 +600,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section - ΒΕΛΤΙΩΜΕΝΟ -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Η Ασφάλεια Σας, Η Προτεραιότητά Μας</h1>
@@ -674,7 +682,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section - ΜΙΑ ΚΑΤΗΓΟΡΙΑ ΧΩΡΙΣ UPLOAD INSTRUCTIONS -->
+    <!-- Gallery Section -->
     <section id="gallery" class="gallery-section section-light">
         <div class="container">
             <h2>📸 Δουλειές & Εγκαταστάσεις Μας</h2>
@@ -682,54 +690,95 @@
                 Δείτε ολοκληρωμένα projects και επαγγελματικές εγκαταστάσεις από την ομάδα μας
             </p>
 
-            <!-- Gallery Grid -->
+            <!-- Εγκατάσταση CCTV & IP -->
+            <h3>📹 Εγκατάσταση CCTV & IP</h3>
             <div class="gallery-grid">
-                <!-- Project 1 -->
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Εγκατάσταση+CCTV+Καταστήματος" 
-                         alt="Εγκατάσταση CCTV Καταστήματος"
+                    <img src="images/cctv-ip/cctv-1.jpg" 
+                         alt="Εγκατάσταση CCTV & IP - Project 1"
                          onclick="openLightbox(this)">
-                    <div class="gallery-caption">Εγκατάσταση CCTV Καταστήματος</div>
+                    <div class="gallery-caption">CCTV Εγκατάσταση 1</div>
                 </div>
-                
-                <!-- Project 2 -->
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Σύστημα+Συναγερμού+Κατοικίας" 
-                         alt="Σύστημα Συναγερμού Κατοικίας"
+                    <img src="images/cctv-ip/cctv-2.jpg" 
+                         alt="Εγκατάσταση CCTV & IP - Project 2"
                          onclick="openLightbox(this)">
-                    <div class="gallery-caption">Σύστημα Συναγερμού Κατοικίας</div>
+                    <div class="gallery-caption">CCTV Εγκατάσταση 2</div>
                 </div>
-                
-                <!-- Project 3 -->
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Έξυπνο+Σπίτι+Εγκατάσταση" 
-                         alt="Έξυπνο Σπίτι Εγκατάσταση"
+                    <img src="images/cctv-ip/cctv-3.jpg" 
+                         alt="Εγκατάσταση CCTV & IP - Project 3"
                          onclick="openLightbox(this)">
-                    <div class="gallery-caption">Έξυπνο Σπίτι</div>
+                    <div class="gallery-caption">CCTV Εγκατάσταση 3</div>
                 </div>
-                
-                <!-- Project 4 -->
+            </div>
+
+            <!-- Συστήματα Συναγερμού -->
+            <h3>🚨 Συστήματα Συναγερμού</h3>
+            <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Δίκτυα+Οπτικών+Ινών" 
-                         alt="Δίκτυα Οπτικών Ινών"
+                    <img src="images/alarm-systems/alarm-1.jpg" 
+                         alt="Σύστημα Συναγερμού - Project 1"
                          onclick="openLightbox(this)">
-                    <div class="gallery-caption">Δίκτυα Οπτικών Ινών</div>
+                    <div class="gallery-caption">Συναγερμός Εγκατάσταση 1</div>
                 </div>
-                
-                <!-- Project 5 -->
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Πυρανίχνευση+Εγκατάσταση" 
-                         alt="Πυρανίχνευση Εγκατάσταση"
+                    <img src="images/alarm-systems/alarm-2.jpg" 
+                         alt="Σύστημα Συναγερμού - Project 2"
                          onclick="openLightbox(this)">
-                    <div class="gallery-caption">Πυρανίχνευση</div>
+                    <div class="gallery-caption">Συναγερμός Εγκατάσταση 2</div>
                 </div>
-                
-                <!-- Project 6 -->
                 <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Κέντρο+Λήψης+Σημάτων" 
-                         alt="Κέντρο Λήψης Σημάτων"
+                    <img src="images/alarm-systems/alarm-3.jpg" 
+                         alt="Σύστημα Συναγερμού - Project 3"
                          onclick="openLightbox(this)">
-                    <div class="gallery-caption">Κέντρο Λήψης Σημάτων</div>
+                    <div class="gallery-caption">Συναγερμός Εγκατάσταση 3</div>
+                </div>
+            </div>
+
+            <!-- Πυρανίχνευση -->
+            <h3>🔥 Πυρανίχνευση</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/fire-detection/fire-1.jpg" 
+                         alt="Σύστημα Πυρανίχνευσης - Project 1"
+                         onclick="openLightbox(this)">
+                    <div class="gallery-caption">Πυρανίχνευση 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/fire-detection/fire-2.jpg" 
+                         alt="Σύστημα Πυρανίχνευσης - Project 2"
+                         onclick="openLightbox(this)">
+                    <div class="gallery-caption">Πυρανίχνευση 2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/fire-detection/fire-3.jpg" 
+                         alt="Σύστημα Πυρανίχνευσης - Project 3"
+                         onclick="openLightbox(this)">
+                    <div class="gallery-caption">Πυρανίχνευση 3</div>
+                </div>
+            </div>
+
+            <!-- Πιστοποίηση -->
+            <h3>📋 Πιστοποίηση</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/certification/certif-1.jpg" 
+                         alt="Πιστοποίηση Συστημάτων - Document 1"
+                         onclick="openLightbox(this)">
+                    <div class="gallery-caption">Πιστοποίηση 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/certification/certif-2.jpg" 
+                         alt="Πιστοποίηση Συστημάτων - Document 2"
+                         onclick="openLightbox(this)">
+                    <div class="gallery-caption">Πιστοποίηση 2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/certification/certif-3.jpg" 
+                         alt="Πιστοποίηση Συστημάτων - Document 3"
+                         onclick="openLightbox(this)">
+                    <div class="gallery-caption">Πιστοποίηση 3</div>
                 </div>
             </div>
         </div>
@@ -835,7 +884,7 @@
                 
                 <div class="contact-item">
                     <strong>📧 Email:</strong>
-                    <a href="mailto:Mixailidisalarmsystem@yahoo.com">Mixailidisalarmsystem@yahoo.com</a>
+                    <a href="mailto:mixailidisalarmsystem@gmail.com">mixailidisalarmsystem@gmail.com</a>
                 </div>
                 
                 <div class="contact-item">
@@ -874,7 +923,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <img src="53B122F7-0F25-4B63-BDFF-B00B240B12AD.jpeg" alt="MIXAILIDIS SECURITY SOLUTION" class="footer-logo">
+            <img src="images/logo.jpg" alt="MIXAILIDIS SECURITY SOLUTION" class="footer-logo">
             <div class="footer-text">
                 <p><strong>MIXAILIDIS SECURITY</strong><br>
                 Η εμπιστοσύνη σας, η δέσμευσή μας</p>
@@ -897,82 +946,4 @@
             const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
             const callButtons = document.querySelectorAll('#phone-link, #call-now-btn');
             
-            const allPhoneElements = [...phoneLinks, ...callButtons];
-            
-            allPhoneElements.forEach(element => {
-                if (isMobileDevice()) {
-                    // Από κινητό - καλεί κινητό
-                    if (element.href) {
-                        element.href = `tel:${mobileNumber}`;
-                    }
-                    if (element.textContent.includes('698') || element.textContent.includes('ΚΑΛΕΣΤΕ') || element.textContent.includes('ΜΙΛΗΣΤΕ')) {
-                        element.innerHTML = element.innerHTML.replace('📞', '📱').replace('698 8264256', '📱 698 8264256');
-                    }
-                } else {
-                    // Από desktop - καλεί σταθερό
-                    if (element.href) {
-                        element.href = `tel:${landlineNumber}`;
-                    }
-                    if (element.textContent.includes('698') || element.textContent.includes('ΚΑΛΕΣΤΕ') || element.textContent.includes('ΜΙΛΗΣΤΕ')) {
-                        element.innerHTML = element.innerHTML.replace('📱', '📞').replace('698 8264256', '📞 2681 302 053');
-                    }
-                }
-            });
-        }
-
-        // Lightbox Functions
-        function openLightbox(element) {
-            document.getElementById('lightbox').style.display = 'flex';
-            document.getElementById('lightbox-img').src = element.src;
-            document.getElementById('lightbox-caption').textContent = element.alt;
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
-
-        // Quote Form Submission
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Συνέλεξε τα δεδομένα
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                location: document.getElementById('location').value,
-                propertyType: document.getElementById('property-type').value,
-                services: document.getElementById('services-needed').value,
-                description: document.getElementById('description').value,
-                timestamp: new Date().toLocaleString('el-GR')
-            };
-
-            // Δημιουργία email link
-            const subject = `Νέα Αίτηση Προσφοράς από ${formData.name}`;
-            const body = `
-Ονοματεπώνυμο: ${formData.name}
-Τηλέφωνο: ${formData.phone}
-Email: ${formData.email}
-Περιοχή: ${formData.location}
-Τύπος Ακινήτου: ${formData.propertyType}
-Υπηρεσίες: ${formData.services}
-Περιγραφή: ${formData.description}
-Ημερομηνία: ${formData.timestamp}
-            `.trim();
-
-            const mailtoLink = `mailto:Mixailidisalarmsystem@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Άνοιγμα email client
-            window.location.href = mailtoLink;
-            
-            // Εμφάνιση μηνύματος επιβεβαίωσης
-            alert(`Σας ευχαριστούμε ${formData.name}! Θα ανοίξει το email σας για αποστολή. Αν δεν ανοίξει, στείλτε μας email στο Mixailidisalarmsystem@yahoo.com`);
-        });
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            setupSmartPhone();
-        });
-    </script>
-</body>
-</html>
+            const allPhoneElements
